@@ -18,6 +18,7 @@ import simulador.pokemon.TipoPokemon;
 import simulador.pokemon.Voltorb;
 import simulador.pokemon.Zubat;
 import simulador.pokemon.nuevoPokemon;
+import simulador.batalla.Batalla;
 
 public class Principal {
 
@@ -205,6 +206,7 @@ public class Principal {
         System.out.println("4. Seleccionar Pokémon de entrenador 2");
         System.out.println("5. Comenzar batalla");
         System.out.println("6. Volver a menú principal");
+<<<<<<< Updated upstream
         int opcionSubMenuTres=sc.nextInt();
         LinkedList<Entrenador> entrenadorSeleccion = listaEntrenadores.verListaEntrenadores();
         switch (opcionSubMenuTres) {
@@ -236,12 +238,42 @@ public class Principal {
         return entrenadorSeleccionado;
         
         
+=======
+        
+        int opcionSubMenuTres = sc.nextInt();
+        
+        switch (opcionSubMenuTres){
+            case 1:
+                
+            case 2:
+                
+            case 3:
+                
+            case 4:
+                
+            case 5:
+        
+            case 6:    
+                menuPrincipal();
+        }
+>>>>>>> Stashed changes
     }
-
-    public static void duranteBatalla(Pokemon pokemon1, Pokemon pokemon2) {
-        System.out.println("1. " + pokemon1.getNombre() + " Atacar");
-        System.out.println("2. " + pokemon2.getNombre() + " Atacar");
-        System.out.println("3. Finalizar la batalla");
+    
+    
+    
+    public static void duranteBatalla(Pokemon pokemon1, Pokemon pokemon2){
+        System.out.println(pokemon1.getNombre()+" vs. "+pokemon2.getNombre());
+        Batalla batalla = new Batalla();
+        batalla.iniciarBatalla(pokemon1, pokemon2);
+            
+        if (pokemon1.getSalud() > 0) {
+            System.out.println(pokemon1.getNombre() + " ha ganado la batalla.");
+        } else if (pokemon2.getSalud() > 0) {
+            System.out.println(pokemon2.getNombre() + " ha ganado la batalla.");
+        } else {
+            System.out.println("¡Ambos Pokémon se han debilitado!");
+        }
+        System.out.println("Batalla finalizada");
     }
 
     public static void mostrarLista(LinkedList<Pokemon> pokemones) {

@@ -7,8 +7,12 @@ public class Batalla {
         do {
             if (pokemon1.getSalud()>0){
                 pokemon1.atacar(pokemon2);
+                System.out.println(pokemon1.getNombre() + " ha atacado");
+                System.out.println("La salud de "+pokemon2.getNombre()+" ahora es: "+pokemon2.getSalud());
             }else if(pokemon2.getSalud()>0){
-                pokemon2.atacar(pokemon2);
+                pokemon2.atacar(pokemon1);
+                System.out.println(pokemon2.getNombre() + " ha atacado");
+                System.out.println("La salud de "+pokemon1.getNombre()+" ahora es: "+pokemon1.getSalud());
             }else{
                 finBatalla = true;
             }
