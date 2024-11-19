@@ -53,6 +53,8 @@ public class Principal {
             case 3:
                 subMenuTres();
                 break;
+            case 4:
+                System.exit(0);
             default:
                 break;
         }
@@ -114,12 +116,11 @@ public class Principal {
 
         switch (opcionSubMenuDos) {
             case 1:
-                LinkedList<Pokemon> pokemones = listaPokemones.verListaPokemones();
+                LinkedList<Pokemon> pokemones = listaPokemones.verListaAllPokemones();
                 mostrarLista(pokemones);
                 subMenuDos();
                 break;
             case 2:
-                
                 System.out.println("Elige el Pokémon que deseas agregar:");
                 System.out.println("1. Growlithe \n2. Psyduck \n3. Bellsprout \n4.Voltorb \n5.Exeggcute \n6. Onix \n7.Zubat \n8.Farfetchd \n9.Hitmonlee \n10.Tentacool \n11.Nuevo Pokemon ");
                 int opcion = sc.nextInt();
@@ -204,6 +205,37 @@ public class Principal {
         System.out.println("4. Seleccionar Pokémon de entrenador 2");
         System.out.println("5. Comenzar batalla");
         System.out.println("6. Volver a menú principal");
+        int opcionSubMenuTres=sc.nextInt();
+        LinkedList<Entrenador> entrenadorSeleccion = listaEntrenadores.verListaEntrenadores();
+        switch (opcionSubMenuTres) {
+            case 1:    
+                Entrenador entrenador1 = seleccionarEntrenadorBatalla(entrenadorSeleccion);
+                break;
+            case 2:
+                Entrenador entrenador2= seleccionarEntrenadorBatalla(entrenadorSeleccion);
+        }
+    }
+    public static Entrenador seleccionarEntrenadorBatalla(LinkedList<Entrenador> entrenadores){
+        Entrenador entrenadorSeleccionado = null;
+        if (entrenadores.isEmpty()) {
+            System.out.println("No hay entrenadores registrados para seleccionar.");
+            subMenuUno();
+        }
+
+        mostrarListaEntrenadores(entrenadores);
+        System.out.print("Selecciona un entrenador por número: ");
+        int seleccion = sc.nextInt();
+
+        if (seleccion > 0 && seleccion <= entrenadores.size()) {
+            entrenadorSeleccionado = entrenadores.get(seleccion - 1);
+        } else {
+            System.out.println("Selección no válida.");
+
+        }
+        
+        return entrenadorSeleccionado;
+        
+        
     }
 
     public static void duranteBatalla(Pokemon pokemon1, Pokemon pokemon2) {
