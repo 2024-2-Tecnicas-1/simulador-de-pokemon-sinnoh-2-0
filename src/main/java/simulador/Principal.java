@@ -54,19 +54,11 @@ public class Principal {
                 
                 break;
             case 3: 
-                seleccionarEntrenador();
                 break;
             default: 
                 break;
         }
         
-    }
-    
-    public static void seleccionarEntrenador(){
-        System.out.println("1. Ver equipo de Pokémones");
-        System.out.println("2. Agregar Pokémon al equipo");
-        System.out.println("3. Entrenar Pokémon");
-        System.out.println("4. Volver a Gestionar Entrenadores");
     }
     
     public static void subMenuDos(){
