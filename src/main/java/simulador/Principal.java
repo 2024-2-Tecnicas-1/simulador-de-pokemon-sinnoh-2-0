@@ -4,9 +4,19 @@ import java.util.LinkedList;
 import java.util.Scanner;
 import simulador.entrenador.Entrenador;
 import simulador.entrenador.Entrenadores;
+import simulador.pokemon.Bellsprout;
+import simulador.pokemon.Exeggcute;
+import simulador.pokemon.Farfetchd;
+import simulador.pokemon.Growlithe;
+import simulador.pokemon.Hitmonlee;
+import simulador.pokemon.Onix;
 import simulador.pokemon.Pokemon;
 import simulador.pokemon.Pokemones;
+import simulador.pokemon.Psyduck;
+import simulador.pokemon.Tentacool;
 import simulador.pokemon.TipoPokemon;
+import simulador.pokemon.Voltorb;
+import simulador.pokemon.Zubat;
 import simulador.pokemon.nuevoPokemon;
 
 public class Principal {
@@ -109,16 +119,70 @@ public class Principal {
                 subMenuDos();
                 break;
             case 2:
-                System.out.print("Ingresa el nombre del nuevo pokemon: ");
-                String nombre = scLetras.nextLine();
-                int salud = (int) Math.round(Math.random() * 30 + 30);
-                int puntosDeAtaque = (int) Math.round(Math.random() * 60 + 30);
+                
+                System.out.println("Elige el Pokémon que deseas agregar:");
+                System.out.println("1. Growlithe \n2. Psyduck \n3. Bellsprout \n4.Voltorb \n5.Exeggcute \n6. Onix \n7.Zubat \n8.Farfetchd \n9.Hitmonlee \n10.Tentacool \n11.Nuevo Pokemon ");
+                int opcion = sc.nextInt();
+               
+                Pokemon pokemon;
+                switch (opcion) {
+                    case 1:
+                        pokemon = new Growlithe();
+                        listaPokemones.agrgarPokemon(pokemon);
+                        break;
+                    case 2:
+                        pokemon = new Psyduck();
+                        listaPokemones.agrgarPokemon(pokemon);
+                        break;
+                    case 3:
+                        pokemon = new Bellsprout();
+                        listaPokemones.agrgarPokemon(pokemon);
+                        break;
+                    case 4:
+                        pokemon = new Voltorb();
+                        listaPokemones.agrgarPokemon(pokemon);
+                        break;
+                    case 5:
+                        pokemon = new Exeggcute();
+                        listaPokemones.agrgarPokemon(pokemon);
+                        break;
+                    case 6:
+                        pokemon = new Onix();
+                        listaPokemones.agrgarPokemon(pokemon);
+                        break;
+                    case 7:
+                        pokemon = new Zubat();
+                        listaPokemones.agrgarPokemon(pokemon);
+                        break;
+                    case 8:
+                        pokemon = new Farfetchd();
+                        listaPokemones.agrgarPokemon(pokemon);
+                        break;
+                    case 9:
+                        pokemon = new Hitmonlee();
+                        listaPokemones.agrgarPokemon(pokemon);
+                        break;
+                    case 10:
+                        pokemon = new Tentacool();
+                        listaPokemones.agrgarPokemon(pokemon);
+                        break;
+                    case 11:
+                       System.out.print("Ingresa el nombre del nuevo pokemon: ");
+                        String nombre = scLetras.nextLine();
+                        int salud = (int) Math.round(Math.random() * 30 + 30);
+                        int puntosDeAtaque = (int) Math.round(Math.random() * 60 + 30);
 
-                TipoPokemon tipo1 = TipoPokemon.getRandomTipo();
-                TipoPokemon tipo[] = new TipoPokemon[]{tipo1};
+                        TipoPokemon tipo1 = TipoPokemon.getRandomTipo();
+                        TipoPokemon tipo[] = new TipoPokemon[]{tipo1};
 
-                listaPokemones.registrarPokemon(nombre, salud, puntosDeAtaque, tipo);
-
+                        listaPokemones.registrarPokemon(nombre, salud, puntosDeAtaque, tipo);
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                        return;
+                }
+                
+                
                 subMenuDos();
                 break;
 
