@@ -19,4 +19,8 @@ public class Pokemones {
         System.out.println("Pokemon registrado exitosamente: " + nombre);
         
     }
+    
+    public void agregarPokemon(Pokemon pokemon){
+         pokemones.add(pokemon);
+    }
 }

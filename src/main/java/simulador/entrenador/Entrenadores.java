@@ -52,6 +52,7 @@ public class Entrenadores{
         if (seleccion > 0 && seleccion <= pokemones.size()) {
             Pokemon pokemon = pokemones.get(seleccion - 1);
             entrenador.agregarPokemon(pokemon);
+            pokemones.remove(pokemon);
         } else {
             System.out.println("Selección no válida.");
         }
@@ -73,8 +74,8 @@ public class Entrenadores{
     }
     
     public void pantallaPokemones(LinkedList<Pokemon> pokemones){
+        int i=1;
         for (Pokemon pokemon : pokemones) {
-                int i=1;
                 System.out.println(i+". "+ pokemon.getNombre() );
                 i++;
             }
