@@ -142,4 +142,15 @@ public enum TipoPokemon {
         }
         return 1.0; // Por defecto, daño neutro
     }
+    
+    public static TipoPokemon getRandomTipo() {
+            // Obtener todos los valores del enum
+            TipoPokemon[] poke = values();
+            // Seleccionar un índice aleatorio
+            int randomIndex = (int)(Math.random()*15);
+            // Retornar el valor aleatorio
+            return poke[randomIndex];
+        }
+    
+    
 }
