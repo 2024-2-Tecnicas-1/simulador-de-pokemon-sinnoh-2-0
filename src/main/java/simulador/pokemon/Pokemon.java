@@ -14,8 +14,22 @@ public abstract class Pokemon {
         this.tipo = tipo;
     }
 
-    public String getNombre() {
+    public String getNombre(){
         return nombre;
+    }
+    public int getSalud(){
+        return salud;
+    }
+    
+    public void atacar(Pokemon oponente){
+        oponente.recibirDaño(puntosDeAtaque);
+    }
+    
+    public void recibirDaño(int daño){
+        this.salud -= daño;
+        if(this.salud<=0){
+            this.salud = 0;
+        }
     }
     
     public void entrenar(){
