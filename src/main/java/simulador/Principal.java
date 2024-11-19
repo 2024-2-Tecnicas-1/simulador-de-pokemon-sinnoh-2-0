@@ -128,43 +128,43 @@ public class Principal {
                 switch (opcion) {
                     case 1:
                         pokemon = new Growlithe();
-                        listaPokemones.agrgarPokemon(pokemon);
+                        listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 2:
                         pokemon = new Psyduck();
-                        listaPokemones.agrgarPokemon(pokemon);
+                        listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 3:
                         pokemon = new Bellsprout();
-                        listaPokemones.agrgarPokemon(pokemon);
+                        listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 4:
                         pokemon = new Voltorb();
-                        listaPokemones.agrgarPokemon(pokemon);
+                        listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 5:
                         pokemon = new Exeggcute();
-                        listaPokemones.agrgarPokemon(pokemon);
+                        listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 6:
                         pokemon = new Onix();
-                        listaPokemones.agrgarPokemon(pokemon);
+                        listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 7:
                         pokemon = new Zubat();
-                        listaPokemones.agrgarPokemon(pokemon);
+                        listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 8:
                         pokemon = new Farfetchd();
-                        listaPokemones.agrgarPokemon(pokemon);
+                        listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 9:
                         pokemon = new Hitmonlee();
-                        listaPokemones.agrgarPokemon(pokemon);
+                        listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 10:
                         pokemon = new Tentacool();
-                        listaPokemones.agrgarPokemon(pokemon);
+                        listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 11:
                        System.out.print("Ingresa el nombre del nuevo pokemon: ");
