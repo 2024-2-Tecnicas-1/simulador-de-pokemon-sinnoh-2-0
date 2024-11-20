@@ -125,7 +125,7 @@ public class Principal {
                 System.out.println("Elige el Pokémon que deseas agregar:");
                 System.out.println("1. Growlithe \n2. Psyduck \n3. Bellsprout \n4.Voltorb \n5.Exeggcute \n6. Onix \n7.Zubat \n8.Farfetchd \n9.Hitmonlee \n10.Tentacool \n11.Nuevo Pokemon ");
                 int opcion = sc.nextInt();
-               
+
                 Pokemon pokemon;
                 switch (opcion) {
                     case 1:
@@ -169,7 +169,7 @@ public class Principal {
                         listaPokemones.agregarPokemon(pokemon);
                         break;
                     case 11:
-                       System.out.print("Ingresa el nombre del nuevo pokemon: ");
+                        System.out.print("Ingresa el nombre del nuevo pokemon: ");
                         String nombre = scLetras.nextLine();
                         int salud = (int) Math.round(Math.random() * 30 + 30);
                         int puntosDeAtaque = (int) Math.round(Math.random() * 60 + 30);
@@ -183,8 +183,7 @@ public class Principal {
                         System.out.println("Opción no válida.");
                         return;
                 }
-                
-                
+
                 subMenuDos();
                 break;
 
@@ -206,18 +205,47 @@ public class Principal {
         System.out.println("4. Seleccionar Pokémon de entrenador 2");
         System.out.println("5. Comenzar batalla");
         System.out.println("6. Volver a menú principal");
-<<<<<<< Updated upstream
-        int opcionSubMenuTres=sc.nextInt();
+        Entrenador entrenador1 = null;
+        Entrenador entrenador2 = null;
+        Pokemon pokemon1 = null;
+        Pokemon pokemon2 = null;
+        int opcionSubMenuTres = sc.nextInt();
         LinkedList<Entrenador> entrenadorSeleccion = listaEntrenadores.verListaEntrenadores();
+
         switch (opcionSubMenuTres) {
-            case 1:    
-                Entrenador entrenador1 = seleccionarEntrenadorBatalla(entrenadorSeleccion);
+            case 1:
+                entrenador1 = seleccionarEntrenadorBatalla(entrenadorSeleccion);
                 break;
             case 2:
-                Entrenador entrenador2= seleccionarEntrenadorBatalla(entrenadorSeleccion);
+                entrenador2 = seleccionarEntrenadorBatalla(entrenadorSeleccion);
+            case 3:
+                if (entrenador1 == null) {
+                    System.out.println("Por favor seleccione entrenador 1");
+                    subMenuTres();
+                } else {
+                    listaEntrenadores.verEquipoPokemones(entrenador1);
+                    System.out.println("Seleccionar un pokemon para la batalla");
+                    int poke = sc.nextInt() - 1;
+                    pokemon1 = entrenador1.mostrarPokemones().get(poke);
+                }
+            case 4:
+                if (entrenador2 == null) {
+                    System.out.println("Por favor seleccione entrenador 2");
+                    subMenuTres();
+                } else {
+                    listaEntrenadores.verEquipoPokemones(entrenador2);
+                    System.out.println("Seleccionar un pokemon para la batalla");
+                    int poke = sc.nextInt() - 1;
+                    pokemon2 = entrenador2.mostrarPokemones().get(poke);
+                }
+            case 5:
+                duranteBatalla(pokemon1, pokemon2);
+            case 6:
+                menuPrincipal();
         }
     }
-    public static Entrenador seleccionarEntrenadorBatalla(LinkedList<Entrenador> entrenadores){
+
+    public static Entrenador seleccionarEntrenadorBatalla(LinkedList<Entrenador> entrenadores) {
         Entrenador entrenadorSeleccionado = null;
         if (entrenadores.isEmpty()) {
             System.out.println("No hay entrenadores registrados para seleccionar.");
@@ -234,38 +262,16 @@ public class Principal {
             System.out.println("Selección no válida.");
 
         }
-        
+
         return entrenadorSeleccionado;
-        
-        
-=======
-        
-        int opcionSubMenuTres = sc.nextInt();
-        
-        switch (opcionSubMenuTres){
-            case 1:
-                
-            case 2:
-                
-            case 3:
-                
-            case 4:
-                
-            case 5:
-        
-            case 6:    
-                menuPrincipal();
-        }
->>>>>>> Stashed changes
+
     }
-    
-    
-    
-    public static void duranteBatalla(Pokemon pokemon1, Pokemon pokemon2){
-        System.out.println(pokemon1.getNombre()+" vs. "+pokemon2.getNombre());
+
+    public static void duranteBatalla(Pokemon pokemon1, Pokemon pokemon2) {
+        System.out.println(pokemon1.getNombre() + " vs. " + pokemon2.getNombre());
         Batalla batalla = new Batalla();
         batalla.iniciarBatalla(pokemon1, pokemon2);
-            
+
         if (pokemon1.getSalud() > 0) {
             System.out.println(pokemon1.getNombre() + " ha ganado la batalla.");
         } else if (pokemon2.getSalud() > 0) {
@@ -340,7 +346,7 @@ public class Principal {
                 if (pokemones.isEmpty()) {
                     System.out.println("No hay pokemones registrados para seleccionar.");
                     subMenuDos();
-                }else{
+                } else {
                     listaEntrenadores.seleccionarPokemonAgregar(entrenador, pokemones);
                     mostrarsubmenuentrenador(entrenador, pokemones);
                 }
